@@ -1,26 +1,34 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Navbar } from "@/components/web3/Navbar";
+import { Hero } from "@/components/web3/Hero";
+import { Stats } from "@/components/web3/Stats";
+import { Features } from "@/components/web3/Features";
+import { HowItWorks } from "@/components/web3/HowItWorks";
+import { CTA } from "@/components/web3/CTA";
+import { Footer } from "@/components/web3/Footer";
 
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "NovaChain — The Decentralized Layer for the Next Internet" },
+      { name: "description", content: "Build, deploy, and scale Web3 apps on a lightning-fast modular blockchain. 100k+ TPS, sub-second finality, near-zero fees." },
+      { property: "og:title", content: "NovaChain — Web3 Infrastructure" },
+      { property: "og:description", content: "The decentralized layer powering the next generation of on-chain applications." },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. For sites with multiple pages (About, Services, Contact, etc.),
-// create separate route files (about.tsx, services.tsx, contact.tsx) — don't put all pages in this file.
-function PlaceholderIndex() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
-}
-
 function Index() {
-  return <PlaceholderIndex />;
+  return (
+    <main className="min-h-screen">
+      <Navbar />
+      <Hero />
+      <Stats />
+      <Features />
+      <HowItWorks />
+      <CTA />
+      <Footer />
+    </main>
+  );
 }
